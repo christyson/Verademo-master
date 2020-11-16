@@ -17,16 +17,16 @@ jobs:
     - name: Build with Maven
       run: mvn clean verify
 
-    - name: Download the Pipeline Scanner
+    - name: Download the Veracode Pipeline Scan
       uses: wei/curl@master
       with:
         args: -O https://downloads.veracode.com/securityscan/pipeline-scan-LATEST.zip
     
-    - name: Unzip the Pipeline Scanner
+    - name: Unzip the Veracode Pipeline Scan
       run: unzip pipeline-scan-LATEST.zip pipeline-scan.jar
  
-    - name: Engage Ludicrous Speed - Run Pipeline Scan
-      run: java -jar pipeline-scan.jar -f /home/runner/work/Verademo-master/Verademo-master/target/verademo.war -vid "${{secrets.VERACODE_API_ID}}" -vkey "${{secrets.VERACODE_API_SECRET}}" --fail_on_severity="Very High, High" -jo true --issue_details true
+    - name: Run Veracode Pipeline Scan
+      run: java -jar pipeline-scan.jar -f /home/runner/work/Verademo-master/Verademo-master/target/verademo.war -vid "${{secrets.VERACODE_API_ID}}" -vkey "${{secrets.VERACODE_API_SECRET}}" -jo true
       
     - name: Convert pipeline scan output to SARIF format
       id: convert
