@@ -27,6 +27,6 @@ jobs:
         SRCCLR_SCM_URL: https://github.com/christyson/Verademo-master
         EXTRA_ARGS: '--update-advisor --pull-request'
       run: |
-        git config --global user.email "hristyson@users.noreply.github.com"
+        git config --global user.email "christyson@users.noreply.github.com"
         git config --global user.name "Chris Tyson"
         curl -sSL https://download.sourceclear.com/ci.sh | sh -s -- scan $EXTRA_ARGS
