@@ -24,6 +24,6 @@ jobs:
         SRCCLR_PR_ON: medium
         SRCCLR_NO_BREAKING_UPDATES: true
         SRCCLR_IGNORE_CLOSED_PRS: false
-        SRCCLR_SCM_URL: https://gitlab.acme.io
+        SRCCLR_SCM_URL: https://github.com/christyson/Verademo-master
         EXTRA_ARGS: '--update-advisor --pull-request'
       run: curl -sSL https://download.sourceclear.com/ci.sh | sh -s -- scan $EXTRA_ARGS
